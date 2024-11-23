@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<body>
+    <h1>Корзина</h1>
+    <ul>
+        {% for name, details in cart_items.items %}
+            <li>{{ name }} - Цена: {{ details.price }}p,
+                Количество: {{ details.quantity }} <button>Удалить</button></li>
+        {% endfor %}
+    </ul>
+    <p>Общая сумма: {{ total }}p</p>
+    {% if discount_percent > 0 %}
+        <p>Скидка: {{ discount_percent }}%</p>
+        <p>Итоговая сумма со скидкой: {{ final_total }}p</p>
+    {% endif %}
+    <a href="/platform/"><button>Вернуться обратно</button></a>
+</body>
+</html>
